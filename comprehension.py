@@ -1,33 +1,36 @@
-import random
+# The program asks the user to guess for six times a randomly choosen nr. and also gives feedback.
 
-guessesTaken = 0
+import random   # imports the random module
 
-print('Hello! What is your name?')
-myName = input()
+guessesTaken = 0    # defines a variable called "guessesTaken" by assigning 0 to it
 
-number = random.randint(1, 20)
-print('Well, ' + myName + ', I am thinking of a number between 1 and 20.')
+print('Hello! What is your name?')  # prints out the message in the parentheses
+myName = input()    # defines a variable called "myName" by assigning an input to it from the user
 
-while guessesTaken < 6:
-    print('Take a guess.')
-    guess = input()
-    guess = int(guess)
+number = random.randint(1, 20)  # chooses a random nr from 1 to 20 with the randint funct & assigns to "number" variable
+print('Well, ' + myName + ', I am thinking of a number between 1 and 20.')  # prints the msg with the "myName" variable
 
-    guessesTaken += 1
+while guessesTaken < 6:  # while loop:following repeatedly executes as long as guessesTaken variable is smaller than six
+    print('Take a guess.')  # prints out the message in the parentheses
+    guess = input()     # defines a variable called "guess" by assigning an input to it from the user
+    guess = int(guess)  # converts "guess" variable from string into integer
 
-    if guess < number:
-        print('Your guess is too low.')
+    guessesTaken += 1   # adds 1 to "guessesTaken" variable
 
-    if guess > number:
-        print('Your guess is too high.')
+    if guess < number:  # if statement: executes when "guess" variable is less than "number" variable
+        print('Your guess is too low.')    # prints out the message in the parentheses
 
-    if guess == number:
-        break
+    if guess > number:  # if statement: executes when "guess" variable is greater than "number" variable
+        print('Your guess is too high.')    # prints out the message in the parentheses
 
-if guess == number:
-    guessesTaken = str(guessesTaken)
+    if guess == number:     # if statement: executes when "guess" variable equals "number" variable
+        break      # break statement: breaks out, countinues outside the while loop
+
+if guess == number:     # if statement: executes when "guess" variable equals "number" variable
+    guessesTaken = str(guessesTaken)    # converts "guessesTaken" variable from integer into string
     print('Good job, ' + myName + '! You guessed my number in ' + guessesTaken + ' guesses!')
+    # prints out the message in the parentheses with "myName" & "guessesTaken" variables
 
-if guess != number:
-    number = str(number)
-    print('Nope. The number I was thinking of was ' + number)
+if guess != number:     # if statement: executes when "guess" variable does not equal "number" variable
+    number = str(number)    # converts "number" variable from integer into string
+    print('Nope. The number I was thinking of was ' + number)   # prints out the message with "number" variable
